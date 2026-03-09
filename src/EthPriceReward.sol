@@ -77,7 +77,7 @@ contract ETHPriceReward {
         require(address(this).balance >= REWARD_AMOUNT, "Contract has insufficient funds for reward");
 
         // 5. Send reward using low-level call
-        (bool success, ) = payable(msg.sender).call{value: REWARD_AMOUNT}("");
+        (bool success,) = payable(msg.sender).call{value: REWARD_AMOUNT}("");
         require(success, "Failed to send reward ETH");
 
         // 6. Log the event
@@ -94,7 +94,7 @@ contract ETHPriceReward {
         require(contractBalance > 0, "No ETH available to withdraw");
 
         // Secure low-level call
-        (bool success, ) = payable(owner).call{value: contractBalance}("");
+        (bool success,) = payable(owner).call{value: contractBalance}("");
         require(success, "Withdraw failed");
 
         emit FundsWithdrawn(owner, contractBalance);
