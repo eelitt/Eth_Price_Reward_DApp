@@ -1,0 +1,37 @@
+
+# .gitignore 
+
+
+# === FRONTEND ===
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# === NODE ===
+node_modules/
+
+# === ENVIRONMENT ===
+.env
+.env.local
+.env.*.local
+
+# === FOUNDRY ===
+cache/
+out/
+broadcast/
+forge-std/
+chainlink/
+chainlink-brownie-contracts/
+
+# === LIBRARIES & SUBMODULES ===
+lib/
+
+# === LOGS & OS ===
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/
