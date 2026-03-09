@@ -34,11 +34,15 @@ contract ETHPriceReward {
         priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
     }
 
-    // ========== MODIFIER==========
     /// @notice Only the owner can call functions with this modifier
     modifier onlyOwner() {
-        require(msg.sender == owner, "Only the contract owner can call this");
+        _onlyOwner();
         _;
+    }
+
+    /// @dev Internal function that does the actual check
+    function _onlyOwner() internal view {
+        require(msg.sender == owner, "Only the contract owner can call this");
     }
 
     // ========== PRICE FEED FUNCTION ==========
