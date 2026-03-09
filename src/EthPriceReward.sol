@@ -13,13 +13,13 @@ contract ETHPriceReward {
     AggregatorV3Interface internal priceFeed;
 
     // ========== OWNER CONTROL ==========
-    address public owner;  // The person who deployed the contract — only they can withdraw
+    address public owner; // The person who deployed the contract — only they can withdraw
 
     // ========== CONSTANTS  ==========
-    uint256 public constant CLAIM_DEPOSIT = 0.001 ether;      // What user must send
-    uint256 public constant REWARD_AMOUNT = 0.002 ether;      // Double back as reward
-    int256  public constant MIN_PRICE = 200_000_000_000;      // $2,000 with Chainlink's 8 decimals
-    uint256 public constant MAX_STALE_TIME = 3600;            // 1 hour
+    uint256 public constant CLAIM_DEPOSIT = 0.001 ether; // What user must send
+    uint256 public constant REWARD_AMOUNT = 0.002 ether; // Double back as reward
+    int256 public constant MIN_PRICE = 200_000_000_000; // $2,000 with Chainlink's 8 decimals
+    uint256 public constant MAX_STALE_TIME = 3600; // 1 hour
 
     // ========== EVENTS  ==========
     event RewardClaimed(address indexed claimant, uint256 deposit, uint256 reward, int256 ethPrice);
@@ -48,7 +48,7 @@ contract ETHPriceReward {
      */
     function getLatestPrice() public view returns (int256) {
         // Get all the data  (we only need price and timestamp)
-        (, int256 price, , uint256 updatedAt, ) = priceFeed.latestRoundData();
+        (, int256 price,, uint256 updatedAt,) = priceFeed.latestRoundData();
 
         //  price must be positive
         require(price > 0, "Invalid price returned by Chainlink oracle");
