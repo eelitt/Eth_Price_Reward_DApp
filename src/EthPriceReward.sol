@@ -3,7 +3,7 @@ pragma solidity 0.8.28;
 
 import {
     AggregatorV3Interface
-} from "chainlink-brownie-contracts/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+} from "lib/chainlink-brownie-contracts/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 /**
  * @title ETHPriceReward
