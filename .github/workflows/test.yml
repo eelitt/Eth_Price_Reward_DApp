@@ -1,3 +1,4 @@
+# .github/workflows/test.yml
 name: CI
 
 permissions: {}
@@ -28,9 +29,12 @@ jobs:
       - name: Show Forge version
         run: forge --version
         
-      - name: Install dependencies (Chainlink + forge-std)
+      - name: Install dependencies
         run: forge install 
-        
+
+      - name: Update submodules
+        run: git submodule update --init --recursive
+
       - name: Run Forge fmt
         run: forge fmt --check
 
